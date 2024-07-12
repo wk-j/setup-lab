@@ -6,7 +6,7 @@ namespace MyWeb.Jobs
     {
         public void Execute()
         {
-            Console.WriteLine($"Hello from FluentScheduler! Current time: {DateTime.Now}");
+            Console.WriteLine($"Hello from wk-FluentScheduler! Current time: {DateTime.Now}");
         }
     }
 }
