@@ -1,3 +1,6 @@
+using FluentScheduler;
+using MyWeb.Jobs;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -25,5 +28,9 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+// Initialize FluentScheduler
+JobManager.Initialize(new Registry());
+JobManager.AddJob<HelloJob>(s => s.ToRunEvery(5).Seconds());
 
 app.Run();
