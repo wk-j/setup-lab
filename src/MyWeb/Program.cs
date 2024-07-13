@@ -43,6 +43,7 @@ using (var scope = app.Services.CreateScope())
     try
     {
         var context = services.GetRequiredService<MyWebContext>();
+        context.Database.EnsureDeleted();
         context.Database.EnsureCreated();
         Console.WriteLine("Database migrated successfully.");
     }
